@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 # Load the pre-trained model
 model = tf.keras.models.load_model("facial_expression_model_fine_tuned.keras")
- # Update with your file path
+# Update with your file path
 
 # Class labels
 class_labels = ['Anger', 'Disgust', 'Fear', 'Happiness', 'Neutral', 'Sadness', 'Surprise']  # Modify as per your model
@@ -25,7 +25,7 @@ if uploaded_file is not None:
 
     # Preprocess the image for display
     display_img = img.copy()
-    st.image(display_img, caption='Uploaded Image', use_column_width=False, width=300)  # Resize the displayed image
+    st.image(display_img, caption='Uploaded Image', use_container_width=True)  # Updated parameter
 
     # Preprocess the image for the model
     img_resized = img.resize((128, 128))  # Resize to model input size
@@ -59,4 +59,4 @@ if uploaded_file is not None:
     draw.text(text_position, text, fill="black", font=font)
 
     # Display annotated image with reduced size
-    st.image(display_img, caption="Image with Prediction", use_column_width=False, width=300)
+    st.image(display_img, caption="Image with Prediction", use_container_width=True)  # Updated parameter
